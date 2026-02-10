@@ -1,6 +1,5 @@
 const User = require("../models/userModel")
 
-
 const create = async (req, res) => {
     try {
         const newUser = new User(req.body);
@@ -11,7 +10,7 @@ const create = async (req, res) => {
             return res.send("had email rah kayn deja");
         }
         const save = await newUser.save();
-        res.status(201).send(save);
+        res.status(201).json({message: "User t9ad bnnajah"});
     }
     catch (err) {
         console.error("Error fax katbghi tsawb chi  user:", err);
@@ -28,7 +27,6 @@ const  getUser = async (req,res) => {
         console.error(error)
     }
 }
-
 const getUserbyId = async (req,res) => {
     try {
         const id = req.params.id;
@@ -49,7 +47,8 @@ const updateUser = async (req,res) => {
         const UserUpdate = await User.findByIdAndUpdate(id, req.body, {
             new:true,
         })
-        res.status(200).json(UserUpdate)
+        // res.status(200).json(UserUpdate)
+        res.status(200).json({message: "User tbdl bnajah"})
     } catch (error) {
          res.status(500).json({message:error.message})
     }

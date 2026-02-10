@@ -5,7 +5,7 @@ const {create , getUser, getUserbyId, updateUser, deleteUser} = require("../Cont
 route.post('/user',create);
 route.get('/users',getUser);
 route.get('/user/:id',getUserbyId);
-route.put('/update/user/:id',updateUser);
+route.put('/update/user/:id',updateUser); 
 route.delete('/delete/user/:id', deleteUser);
 
 exports.route = route;
